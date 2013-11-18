@@ -1,13 +1,8 @@
-task :default => [:test]
-
-task :test do
-  ruby 'models/gogo.rb'
-end
+task :default => [:load_db]
 
 task :load_db do
   require 'data_mapper'
-  require './models/schema.rb'
-  require './models/seeder.rb'
+  Dir["./models/*.rb"].each {|file| require file }
 end
 
 task :recreate_db => [:load_db] do
