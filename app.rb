@@ -1,5 +1,5 @@
 require 'sinatra/base'
-require 'data_mapper'
+require 'dm-core'
 Dir["./models/*.rb"].each {|file| require file }
 
 #Dir[File.dirname(__FILE__) + './models/*.rb'].each {|file| require file }
