@@ -12,12 +12,11 @@ gem 'coffee-script'
 gem 'uglifier'
 
 
-#gem "json", "~> 1.8.0"
-#gem "data_mapper", "~> 1.2.0"
-#gem "prawn", "~> 0.12.0"
+gem "json", "~> 1.8.0"
+gem "data_mapper", "~> 1.2.0"
+gem "prawn", "~> 0.12.0"
 #gem "active_support", "~> 3.0.0"
-#gem "require_all", "~> 1.3.1"
-#
+
 group :production do
   gem 'dm-postgres-adapter'
 end
