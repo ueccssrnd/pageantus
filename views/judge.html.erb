@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Pageantus</title>
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link rel="stylesheet" type="text/css" href="css/judge.css" />
+
+    </head>
+    <body>
+        <input type ="hidden" id="server_address" value="<%= 'http://' + request.env["SERVER_NAME"] + ':4567/' %>">
+        <!-- request.env["SERVER_NAME"]  ??-->
+        <div id="container"><div id="idle">
+                <div class="widget" id="time">
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="widget" id="unlock">
+                    <div id="well">
+                        <h2><strong id="slider"></strong><span>slide to unlock</span></h2>
+                    </div>
+                </div>
+            </div>
+            <div id="content">
+                <div id="header">
+                    <span id="pageant-name">Mr. and Ms. CCSS 2013</span>
+                    <span id="header-time"></span>
+                    <span>
+                        <span id="connectivity" class="tray-icon"></span>
+                        <span id="lock" class="tray-icon"></span>
+                        <span id="settings" class="tray-icon"></span>
+                    </span>
+                </div>
+                <div id="content-pane">
+                    <div id="criteria">
+                        <h1>Criteria</h1>
+                    </div>
+                    <div id="candidate-details">
+                        <span class="name label">Sample Person</span>
+                        <span class="college label">College of Computer Studies and Systems</span>
+                        <span class="image">
+                            <span class="number">5</span>
+                            <span class="score-pane">
+                                <span class="category label">Mastery and Excellence</span>
+                                <span id="score" class="score"></span>
+                            </span>
+                            <span class="left arrow"></span>
+                            <span class="right arrow"></span>
+                        </span>
+                    </div>
+                    <div id="candidate-set">
+                        <span id="submit">Submit Scores</span>
+                    </div>
+                </div>
+                <div id="sidebar"></div>
+            </div>
+            <div id="footer">
+
+            </div>
+        </div>
+        <script type="text/javascript" src="js/libs/jquery.js"></script>
+        <script type="text/javascript" src="js/libs/jqueryui.js"></script>
+        <script type="text/javascript" src="js/libs/lodash.min.js"></script>
+        <script type="text/javascript" src="js/judge.js"></script>
+    </body>
+</html>

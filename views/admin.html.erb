@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Pageantus: Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/admin.css">
+        
+        <%#= stylesheet_link_tag "font-awesome/css/font-awesome.min.css", "css/admin.css", :media => "all" %>
+        <link rel="shortcut icon" href="images/favicon.ico">
+    </head>
+    <body>
+        <nav class="navigation black-gradient">
+            <ul class="navigation list-unstyled ">
+                <li>Pageantus</li>
+                <li class="active"><%= link_to '<i class="navigation-icon icon-star icon-2x rotate"></i>Pageant', '#' %></li>
+                <li><%= link_to '<i class="navigation-icon icon-gears icon-2x rotate"></i>Setup', '#' %></li>
+                <li><%= link_to '<i class="navigation-icon icon-camera-retro  icon-2x rotate"></i>Reports', '#' %></li>
+                <li><%= link_to '<i class="navigation-icon icon-copy  icon-2x rotate"></i>Logs', '#' %></li>
+                <li><%= link_to '<i class="navigation-icon icon-signout  icon-2x rotate"></i>Log Out', '#' %></li>
+            </ul>
+        </nav>
+<div class="main-body">
+<div class="">
+    <h1 class="text-center pageant-title"><%= @pageant.long_name %></h1>
+    <h3 class="text-center pageant-category">Current Category: Appeal and Poise (Talent)</h3>
+    <div class="row">
+        <div class="col-xs-6">
+            <h2 class="text-center">Pageant Progress</h2>
+            <div class="category-box">
+                <div class="col-xs-7">
+                    <h3 class="category-title">Appeal and Poise (Talent)</h3>
+                </div>
+                <div class="col-xs-5">
+
+                </div>
+            </div>
+
+            <div class="category-box">
+                <div class="col-xs-7">
+                    <h3 class="category-title">Appeal and Poise (Talent)</h3>
+                </div>
+                <div class="col-xs-5">
+                    <h3 class="category-title">Appeal</h3>
+                </div>
+            </div>
+
+        </div> <!-- end left column -->
+        <div class="col-xs-6">
+            <h2 class="text-center">Judges</h2>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Judge</th>
+                    <th>Listening at</th>
+                    <th>Assistant</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                        <tbody>
+                            <tr class="submitted">
+                                <td>1</td>
+                                <td>Say Alonzo</td>
+                                <td>192.168.1.103</td>
+                                <td>KarlM</td>
+                                <td>Passed Score</td>
+                            </tr>
+                            <tr class="waiting">
+                                <td>1</td>
+                                <td>Macho Gawpito</td>
+                                <td>192.168.1.103</td>
+                                <td>NeilP</td>
+                                <td>Waiting</td>
+                            </tr>
+                            <tr class="disconnected">
+                                <td>1</td>
+                                <td>Disco</td>
+                                <td>192.168.1.103</td>
+                                <td>ChiSt</td>
+                                <td>Disconnected</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Say Alonzo</td>
+                                <td>192.168.1.103</td>
+                                <td>ChiSt</td>
+                                <td>Passed Score</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Say Alonzo</td>
+                                <td>192.168.1.103</td>
+                                <td>ChiSt</td>
+                                <td>Passed Score</td>
+                            </tr>
+
+                        </tbody>
+
+            </table>
+        </div> <!-- end right column -->
+    </div> <!-- end row -->
+    <div class="clearfix"></div>
+    
+
+</div> <!-- end container -->
+</div> <!-- end main body -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

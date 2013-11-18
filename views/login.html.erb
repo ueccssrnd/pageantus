@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Pageantus: Log In</title>
+		<meta charset=utf-8 />
+		<link rel="shortcut icon" href="images/favicon.ico"/>
+		<style>
+		body{
+			background-color: #222;
+				background-image: url('../images/logo_splash.png');
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		input{
+			background-color: transparent;
+			border: none;
+		}
+		</style>
+	</head>
+	<body>
+		<form id="login" method="post" action="login">
+		  <input id="username" type="text" name="username">
+		  <input type="text" name="assistant"/>
+		  <input type="submit" value="Log In"/>
+		</form>
+		<script>
+			function $(param){
+				return document.querySelector(param);
+			}
+			window.onload = function(){
+				$('#username').focus();
+			}
+		</script>
+	</body>
+</html>

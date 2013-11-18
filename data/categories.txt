@@ -1,0 +1,13 @@
+1|Originality|Orig|30|Talent
+2|Execution|Exec|35|Talent
+3|Appeal and Poise (Talent)|AP(T)|20|Talent
+4|Audience Impact (Talent)|AI(T)|15|Talent
+5|Votes|Votes|12.5|Coronation
+6|Punctuality|Punc|12.5|Coronation
+7|Theme Wear|ThW|12.5|Coronation
+8|Summer Wear|SuW|12.5|Coronation
+9|Casual Wear|CaW|12.5|Coronation
+10|Formal Wear|FoW|12.5|Coronation
+11|Appeal and Poise (Coronation)|AP(C)|12.5|Coronation
+12|Audience Impact (Coronation)|AI(C)|12.5|Coronation
+13|Top 5|TOP5|100|Final

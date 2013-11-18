@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Pageantus: Admin</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/pageantus.css" rel="stylesheet">
+        <link href="css/admin.css" rel="stylesheet">
+            
+        <link rel="shortcut icon" href="images/favicon.ico">
+    </head>
+    <body>
+        <input type ="hidden" id="server_address" value="<%= 'http://' + request.env['REMOTE_ADDR'] + ':4567/' %>">
+        <nav class="navbar navbar-default" role="navigation">
+          <!-- Brand and toggle get grouped for better mobile display -->
+
+            <a class="navbar-brand" href="#">Pageantus</a>
+             <ul class="nav navbar-nav navbar-right">
+              <li class="dropdown">
+                <a href="#" id="navbar-current-category"><b class="caret"></b></a>
+                <ul id="navbar-categories" class="dropdown-menu"></ul>
+              </li>
+            </ul> <!-- end navbar change thingie -->
+        </nav> 
+
+        <div class="row">
+            <div class="col-md-2 dash">
+                <ul class="nav nav-stacked">
+                    <li><a href="#home" data-toggle="tab"><i class="icon-camera-retro icon-fixed-width icon-large rotate"></i>Pageant</a></li>
+                    <li><a href="#setup" data-toggle="tab"><i class="icon-camera-retro icon-fixed-width icon-large rotate"></i>Setup</a></li>
+                    <li><a href="#candidates" data-toggle="tab"><i class="icon-th icon-fixed-width icon-large rotate"></i>Candidates</a></li>
+                    <li><a href="#settings" data-toggle="tab"><i class="icon-rocket icon-fixed-width icon-large rotate"></i>Settings</a></li>
+                    <li><a href="#backup" data-toggle="tab"><i class="icon-save icon-fixed-width icon-large rotate"></i>Back Up</a></li>
+                    <li><a href="#help" data-toggle="tab"><i class="icon-question icon-fixed-width icon-large rotate"></i>Help</a></li>
+                    <li><a href="/logout" ><i class="icon-signout icon-fixed-width icon-large rotate"></i>Log Out</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-10">
+                <div class="tab-content">
+    <div class="tab-pane active" id="home"> 
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="current-pageant">
+                    <%= Pageant.is_starting? ? Pageant.active[0].long_name : "Pageantus - Not Yet Started"%>
+                </h1>
+            </div>
+            <div class="col-md-8">
+                <h2><a href="<%= 'http://' + request.env['SERVER_NAME'] + ':4567/report/round/' + Round.active[0].id.to_s %>"><%= Round.active[0].name %></a></h2>
+                <table id="categories-current" class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Category Name</th>
+                            <th>Actions</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <% Category.all(:round_id.gt => 1).each do |cat| %>
+                            <tr class="<%=  "active" if  cat.active? %> <%= "submitting" if cat.submission_allowed? %>">
+                                <td><%= cat.number %></td>
+                                <td class="pad-this"><h4><%= cat.long_name %></h4></td>
+                                <td>
+                                    <div class="btn-group" data-toggle="buttons">
+                                      <label class="btn btn-primary activate-category<%=  " active" if  cat.active? %>" category-id="<%= cat.id.to_s %>" category-name="<%= cat.long_name %>">
+                                        <input type="checkbox"> Activate
+                                      </label>
+                                      <label class="btn btn-primary submit-category<%=  " active" if  cat.submission_allowed? %>" category-id="<%= cat.id.to_s %>">
+                                        <input type="checkbox"> Allow Submit
+                                      </label>
+                                      <label class="btn btn-primary generate-report" report-location="<%=  'http://' + request.env['SERVER_NAME'] + ':4567/report/category/' + cat.id.to_s  %>">
+                                        <input type="checkbox"> Generate  Report
+                                      </label>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+            </div>
+
+
+        <!-- </div> <!-- end row 
+
+
+        <div class="row"> -->
+            <div class="col-md-4">
+                <h2>Judges Status</h2>
+                    <table id="judges-table" class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Judge</th>
+                            <th>Listening</th>
+                            <th>Assistant</th>
+                            <th>Submitted?</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <% Judge.all(is_connected: true).each do |cat| %>
+                            <tr>
+                                <td><%= cat.number %></td>
+                                <td><%= cat.name %></td>
+                                <td><%= cat.ip_address %></td>
+                                <td><%= cat.assistant %></td>
+                                <td><%= Score.all(category_id: Category.active[0].id, judge_id: cat.id).count > 0 ? '<span class="label label-info">Yes</span>' : '<span class="label label-danger">No</span>' %></td>
+
+                            </tr>
+                            <% end %>
+
+
+                        </tbody>
+                        <a href="<%=  'http://' + request.env['SERVER_NAME'] + ':4567/report/top5/' %>" class="btn btn-danger">Go to Top 5!</a>
+                    </table>
+            </div> <!-- end left column -->
+            <div class="row">
+                <div class="col-md-6">
+
+
+                </div> <!-- end right column -->
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end pageant tab --> 
+    <div class="tab-pane" id="candidates">
+        <div class="col-md-12">
+            <h1 class="candidates-header">Candidates</h1>
+        </div>
+
+        <div class="col-md-12">
+            <table id="candidates-table" class="table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>College</th>
+                    <th>Gender</th>
+                    <th>Competing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <% Candidate.all.each do |candidate| %>
+                            <tr>
+                                <td><%= candidate.id %></td>
+                                <td><%= "#{candidate.first_name} #{candidate.last_name}" %></td>
+                                <td><%= candidate.short_description %></td>
+                                <td><%= candidate.gender %></td>
+                                <td>
+                                    <button type="button" class="btn <%= candidate.is_active ? "btn-default" : "btn-danger" %> btn-sm toggle-candidate-active" candidate-id="<%= candidate.id %>" candidate-active="<%= candidate.is_active %>"><%= candidate.is_active ? "Active" : "Inactive" %></button>
+                                </td>
+                            </tr>
+                            <% end %>
+                </tbody>
+            </table>
+        </div>
+
+            <!-- property :gender, String
+    property :short_description, String, length: 3..8
+    property :long_description, String, length: 16..255
+    property :facial_photo_location, String, :default => 'rnd_face.jpg'
+    property :body_photo_location, String, :default => 'rnd_body.jpg'
+    property :created_at, DateTime, :default => DateTime.now, :lazy => [:show]
+    property :updated_at, DateTime, :default => DateTime.now, :lazy => [:show] -->
+
+       <!--  <div class="col-md-6">
+            <form class="form-inline" role="form">
+                  <div class="form-group">
+                    <select name="report-generate-category" id="report-generate-category" class="form-control" placeholder="Category">
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select name="report-generate-gender" id="report-generate-gender" class="form-control" placeholder="Gender">
+                    </select>
+                  </div>
+                 <div class="form-group">
+                  <button id="report-generate-submit" class="btn btn-default">Generate Report</button>
+                  </div>
+            </form> <!-- end report generation form -->
+    </div> <!-- end reports tab -->
+    <div class="tab-pane" id="setup">
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="clickable">Modify</h1>
+            </div>
+            <div class="col-md-6">
+                <h1>Talent Portion</h1>
+            </div>
+        </div> <!-- end row -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Manual Input</h2>
+                <form class="form-inline" role="form">
+                  <div class="form-group">
+                    <select name="manual-input-category" id="manual-input-category" class="form-control" placeholder="Category">
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select name="manual-input-candidate" id="manual-input-candidate" class="form-control" placeholder="Candidate">
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <select name="manual-input-judge" id="manual-input-judge" class="form-control">
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <input type="number" class="form-control" id="manual-input-score" placeholder="100">
+                  </div>
+                 <div class="form-group">
+                  <button id="manual-input-submit" class="btn btn-default">Submit Score</button>
+                  </div>
+                </form>
+            </div> <!-- end left column -->
+
+            <div class="col-md-6">
+                <h2>All Scores</h2>
+                <table id="candidates-table" class="table">
+                        <thead>
+                          <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Gender</th>
+                            <th>Desc</th>
+                            <th>Competing</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+            </div> <!-- end right column -->
+        </div> <!-- end row -->
+        <h1>Modify shit</h1>
+        <p>Manual input</p>
+        <p>Manual override ng scores</p>
+    </div> <!-- end modify tab -->
+    <div class="tab-pane" id="settings">
+        <h1>Reports</h1>
+    </div> <!-- end settings tab -->
+    <div class="tab-pane" id="backup">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Backup</h1>
+                <button class="btn btn-primary" id="backup-database">Backup</button>
+            </div>
+            <div class="col-md-6 ">
+                <h1 class="">Talent Portion</h1>
+            </div>
+        </div> <!-- end row -->
+    </div> <!-- end backup tab -->
+    <div class="tab-pane" id="help">
+        <h1>Help</h1>
+    </div> <!-- end help tab -->
+</div>
+                
+            
+                
+            </div> <!-- end tab content -->
+            
+
+        </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

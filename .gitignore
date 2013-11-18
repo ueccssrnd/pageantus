@@ -1,0 +1,7 @@
+nbproject/
+public/images/hires/
+public/images/pageant/
+development.rb
+test.rb
+*.pdf
+.DS_Store
