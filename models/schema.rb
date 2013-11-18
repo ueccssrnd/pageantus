@@ -1,6 +1,5 @@
 ##ORM and Models via Datamapper, SQLite database
-#DataMapper.setup(:default,  ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/test.rb")
-DataMapper.setup :default,  ENV['DATABASE_URL']
+DataMapper.setup(:default,  ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/test.rb")
 
 module Activatable
   def active

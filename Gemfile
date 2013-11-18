@@ -17,5 +17,10 @@ gem "data_mapper", "~> 1.2.0"
 gem "prawn", "~> 0.12.0"
 #gem "active_support", "~> 3.0.0"
 
+group :production do
+  gem 'dm-postgres-adapter'
+end
 
-gem 'dm-postgres-adapter'
+group :development, :test do
+  gem 'dm-sqlite-adapter', "~> 1.2.0"
+end
