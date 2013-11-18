@@ -1,1 +1,1 @@
-web: bundle exec ruby app.rb -e production
+web: bundle exec ruby app.rb -p $PORT -e production
