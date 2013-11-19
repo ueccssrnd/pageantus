@@ -3,10 +3,11 @@ ruby '2.0.0'
 
 gem "sinatra", "1.4.3"
 gem "haml", "~> 4.0.4"
+gem "bourbon"
 
 gem 'sprockets', '~> 2.0'
-gem 'compass'
-gem 'bootstrap-sass'
+#gem 'compass'
+#gem 'bootstrap-sass'
 
 gem 'coffee-script' 
 gem 'uglifier'

@@ -1,1 +1,11 @@
-@import url(projector.css);
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  background-color: #1e5799;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #1e5799), color-stop(100%, #2989d8));
+  background-image: -webkit-linear-gradient(#1e5799, #2989d8);
+  background-image: linear-gradient(#1e5799, #2989d8);
+  color: red; }

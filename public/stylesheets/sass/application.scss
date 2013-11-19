@@ -1,0 +1,7 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+
+body{
+    @include linear-gradient(#1e5799, #2989d8);
+    color: red;
+}
