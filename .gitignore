@@ -5,4 +5,5 @@ development.rb
 test.rb
 *.pdf
 .DS_Store
-.sass-cache
+.sass-cache/
+.bundle/
