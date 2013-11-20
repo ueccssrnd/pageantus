@@ -1,15 +1,14 @@
 pageantus
 =========
 
-Pageant Management System
--------------------------
+##Pageant Management System
 
 PHP Iteration Used: Mr. and Ms. UE 2012, Mr. and Ms. CCSS 2013
 
 Ruby Iteration Used: Mr. and Ms. UE 2013
 
-Usage
------
+#### Usage
+
 
 `git clone https://github.com/ueccssrnd/pageantus.git`
 
@@ -17,22 +16,13 @@ Usage
 
 `rackup` launches at port 9292
 
-`tux` to launch an IRB instance
-
 CCSS Testing: IP Address must be 172.16.2.101, Subnet Mask = 255.255.255.254, Router = 172.16.2.1
 
-Libraries Used
---------------
+#### Toolzorz
 
-* Some Twitter Bootstrap
-* JQuery
-* JQueryUI (Slider)
-* Sinatra
-* DataMapper
-* Prawn
-* Rspec for testing
-* Tux for irb debugging
+Back-end: Sinatra+DataMapper+Prawn+RSpec
 
+Front-end: Sprockets+CoffeeScript+Bourbon+Neat+Haml
 
 @todo
 * css conversion to skeleton

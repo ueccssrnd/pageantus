@@ -8,9 +8,17 @@ class Pageantus < Sinatra::Base
   set :public_folder, File.dirname(__FILE__) +  '/public'
   set :session_secret, 'super sectero'
   set :environment, :production
-  set :haml, { :format => :html5 }
 
   helpers do
+    def content_for(key, &block)
+      @content ||= {}
+      @content[key] = capture_haml(&block)
+    end
+  
+    def content(key)
+      @content && @content[key]
+    end
+  
     def json_status(code, reason)
       status code
       {
@@ -64,6 +72,7 @@ class Pageantus < Sinatra::Base
   # Routes for views: homepage, if logged in then go to admin or client. 
 
   get '/' do
+    #    content_for :title, "Title for specific page"
     haml :index
     #    check_permissions
   end
