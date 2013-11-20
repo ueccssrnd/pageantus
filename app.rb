@@ -1,5 +1,7 @@
 require File.join(File.dirname(__FILE__), 'environment')
 
+#configure production statis cture cache enabled true
+
 class Pageantus < Sinatra::Base
 
   enable :sessions
@@ -73,7 +75,7 @@ class Pageantus < Sinatra::Base
 
   get '/' do
     #    content_for :title, "Title for specific page"
-    haml :index
+    haml :login
     #    check_permissions
   end
   

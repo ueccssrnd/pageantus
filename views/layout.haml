@@ -3,6 +3,8 @@
   %head
     = haml :_meta
     %title= content(:title).nil? ? Pageantus : content(:title)
-    %link{ :rel => 'stylesheet', :href => "css/application.css" }
+    %link{:rel => "shortcut icon", :href => "images/rnd.ico"}
+    %link{:href => "/image/favicon.png", :rel => "apple-touch-icon", :type => "image/png"}
+    %link{:rel => "stylesheet", :href => "stylesheets/application.css" }
   %body
     = yield
