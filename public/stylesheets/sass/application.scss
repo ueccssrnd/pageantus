@@ -3,8 +3,9 @@
 @include font-face('Helvetica Neue', '../fonts/helveticaneue.ttf');
 
 body{
-    @include background(url('../images/logo_splash.png') no-repeat);
+    @include background(url('../images/black.jpg') no-repeat);
     background-size: cover;
+    cursor: default;
     font-family: $helvetica;
 }
 

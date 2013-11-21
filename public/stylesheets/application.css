@@ -11,9 +11,10 @@
   src: url("../fonts/helveticaneue.ttf.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneue.ttf.woff") format("woff"), url("../fonts/helveticaneue.ttf.ttf") format("truetype"), url("../fonts/helveticaneue.ttf.svg#Helvetica Neue") format("svg"); }
 
 body {
-  background: url("../images/logo_splash.png") no-repeat;
-  background: url("../images/logo_splash.png") no-repeat;
+  background: url("../images/black.jpg") no-repeat;
+  background: url("../images/black.jpg") no-repeat;
   background-size: cover;
+  cursor: default;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 input[type="submit"] {

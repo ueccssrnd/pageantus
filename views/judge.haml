@@ -1,4 +1,36 @@
 - content_for :title do
   Judge Module
 %h1 Judge
-%input#server_address{:type => "hidden"}
+%input#server-address{:type => "hidden", :value => "#{request.host}:#{request.port}"}
+.container
+  .idle
+  .widget#time
+    .first
+    .second
+  .widget#unlock
+    #well
+      %h2 slide to unlock
+  #content
+    #header
+      %span#pageant-name Mr. and Ms. CCSS 2013
+      %span#header-time
+      %span.tray-icon#connectivity
+      %span.tray-icon#lock
+      %span.tray-icon#settings
+    #content-pane
+      #criteria
+        %h1 Criteria
+      #candidate-details
+        %span.name.label Sample Person
+        %span.college.label College of Computer Studies and Systems
+        %span.image
+          %span.number 5
+          %span.score-pane
+            %span.category.label Category 1
+            %span.score#score
+          %span.left.arrow
+          %span.right.arrow
+        #candidate-set
+          %span#submit Submit Scores
+    #sidebar
+  #footer
