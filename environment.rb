@@ -2,7 +2,9 @@
 data_mapper
 json
 pry
-sinatra
+sass
+sinatra/base
+sinatra/assetpack
 ).each {|d| require d}
 
 DataMapper.setup(:default,  ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/test.rb")

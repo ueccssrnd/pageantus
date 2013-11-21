@@ -4,6 +4,7 @@ require File.join(File.dirname(__FILE__), 'environment')
 
 class Pageantus < Sinatra::Base
   helpers ApplicationHelper
+  
 
   enable :sessions
   set :session_secret, 'super sectero'
@@ -11,7 +12,17 @@ class Pageantus < Sinatra::Base
   set :root, File.dirname(__FILE__)
   set :public_folder, File.dirname(__FILE__) +  '/public'
   
+  register Sinatra::AssetPack
   
+  assets do
+    serve '/css', :from => 'public/stylesheets'
+    css :pageantusa, ['/css/*.css']
+    css_compression :simple
+
+    serve '/js', :from => 'public/javascripts'
+    js :pageantus, ['/js/lib/*.js', '/js/*.js']
+    js_compression :jsmin
+  end
   
   DataMapper.finalize
   DataMapper.auto_upgrade!
@@ -22,14 +33,11 @@ class Pageantus < Sinatra::Base
   before  do
     @models = %w{pageant round category candidate judge score setting}
     @to_pass = params[:data] || params
-    #    response['Access-Control-Allow-Origin'] = '*' #this is dangerous! haha
-    #    response['Access-Control-Allow-Methods'] = 'GET, POST, PUT, DELETE'
   end
 
   # Routes for views: homepage, if logged in then go to admin or client. 
 
   get '/' do
-#    binding.pry
     if session[:user_id]
       puts session[:user_id]
       render_page 'judge'
@@ -43,16 +51,29 @@ class Pageantus < Sinatra::Base
     Pageant.first.long_name
   end
 
-  #  get '/backup' do
-  #    Pageant.active.backup
-  #    'yey'.to_json
-  #  end
-  #
+  
   post '/login' do
     check_if_admin(params[:username], params[:assistant])
     check_if_judge(params[:username], params[:assistant], request.ip)
     redirect '/'
   end
+  
+  get '/logout' do
+    session.clear
+    redirect '/'
+  end
+  
+  #  get '/backup' do
+  #    Pageant.active.backup
+  #    'yey'.to_json
+  #  end
+  #
+  
+#  not_found do
+#    #      check if request is json or not
+#    json_status 404, 'Battlecruiser not in transit'
+#  end
+  
   #
   #  get '/old' do
   #    content_type 'html'
@@ -69,10 +90,6 @@ class Pageantus < Sinatra::Base
   #    erb :'top5.html'
   #  end
   #
-  get '/logout' do
-    session.clear
-    redirect '/'
-  end
   #
   #  get '/session' do
   #    session[:user_id].to_json
@@ -318,10 +335,7 @@ class Pageantus < Sinatra::Base
   #    end
   #  end #delete route
   #  
-  not_found do
-    #      check if request is json or not
-    json_status 404, 'Battlecruiser not in transit'
-  end
+
   #
   #  error do
   #    json_status 500, env['sinatra.error'].message

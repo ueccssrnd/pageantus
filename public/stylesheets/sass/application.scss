@@ -1,6 +1,5 @@
 @import "bourbon/bourbon";
 @import "neat/neat";
-@include font-face('Helvetica Neue', '../fonts/helveticaneue.ttf');
 
 body{
     @include background(url('../images/black.jpg') no-repeat);
@@ -200,9 +199,6 @@ button:active{
     cursor: default;
 }
 
-
-
-
 .widget{
     @include background(rgba(0,0,0,0.6), url('../images/judge/gloss.png'), repeat-x, center);
     box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.5), 0px 0px 4px #000;
@@ -210,6 +206,10 @@ button:active{
     position: absolute;
     width: 100%;
     text-align: center;
+}
+
+#unlock{
+    bottom: 0;
 }
 
 #well{

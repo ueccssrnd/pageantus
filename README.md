@@ -23,11 +23,11 @@ CCSS Testing: IP Address must be 172.16.2.101, Subnet Mask = 255.255.255.254, Ro
 
 #### Toolzorz
 
-Back-end: Sinatra+DataMapper+PostgreSQL+Heroku
+Back-end: Sinatra + DataMapper + PostgreSQL + Heroku
 
-Utility: Prawn+RSpec
+Utility: Prawn + RSpec
 
-Front-end: Sprockets+CoffeeScript+Bourbon+Neat+Haml
+Front-end: Sinatra Asset Pack + CoffeeScript + Bourbon + Neat + Haml
 
 @todo
 * http://martinfowler.com/articles/rake.html

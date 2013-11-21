@@ -7,3 +7,4 @@ test.rb
 .DS_Store
 .sass-cache/
 .bundle/
+stylesheets/*.css

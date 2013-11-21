@@ -3,13 +3,6 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-@font-face {
-  font-family: "Helvetica Neue";
-  font-weight: normal;
-  font-style: normal;
-  src: url("../fonts/helveticaneue.ttf.eot");
-  src: url("../fonts/helveticaneue.ttf.eot?#iefix") format("embedded-opentype"), url("../fonts/helveticaneue.ttf.woff") format("woff"), url("../fonts/helveticaneue.ttf.ttf") format("truetype"), url("../fonts/helveticaneue.ttf.svg#Helvetica Neue") format("svg"); }
-
 body {
   background: url("../images/black.jpg") no-repeat;
   background: url("../images/black.jpg") no-repeat;
@@ -204,6 +197,9 @@ button:active {
   position: absolute;
   width: 100%;
   text-align: center; }
+
+#unlock {
+  bottom: 0; }
 
 #well {
   background-color: rgba(0, 0, 0, 0.45);
