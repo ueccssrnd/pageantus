@@ -1,3 +1,6 @@
 require 'rubygems'
 require './app'
-run Pageantus
+
+map '/' do
+  run Pageantus
+end

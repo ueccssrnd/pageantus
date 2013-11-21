@@ -6,11 +6,12 @@ class Pageantus < Sinatra::Base
   helpers ApplicationHelper
 
   enable :sessions
-  set :root, File.dirname(__FILE__)
-  set :protection, :except => [:http_origin, :remote_token]
-  set :public_folder, File.dirname(__FILE__) +  '/public'
   set :session_secret, 'super sectero'
-  set :environment, :development
+  
+  set :root, File.dirname(__FILE__)
+  set :public_folder, File.dirname(__FILE__) +  '/public'
+  
+  
   
   DataMapper.finalize
   DataMapper.auto_upgrade!
