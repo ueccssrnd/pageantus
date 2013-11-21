@@ -3,63 +3,16 @@ require File.join(File.dirname(__FILE__), 'environment')
 #configure production statis cture cache enabled true
 
 class Pageantus < Sinatra::Base
+  helpers ApplicationHelper
 
   enable :sessions
   set :root, File.dirname(__FILE__)
   set :protection, :except => [:http_origin, :remote_token]
   set :public_folder, File.dirname(__FILE__) +  '/public'
   set :session_secret, 'super sectero'
-  set :environment, :production
+  set :environment, :development
 
-  helpers do
-    def content_for(key, &block)
-      @content ||= {}
-      @content[key] = capture_haml(&block)
-    end
-  
-    def content(key)
-      @content && @content[key]
-    end
-  
-    def json_status(code, reason)
-      status code
-      {
-        :status => code,
-        :reason => reason
-      }.to_json
-    end
-
-    def check_permissions
-      content_type 'html'
-      if session[:admin]
-        Pageant.active.update(server_address: request.env['REMOTE_ADDR'])
-        @pageant = Pageant.active[0]
-        erb :'admin.html'
-      elsif session[:user_id]
-        erb :'judge.html'
-      else
-        erb :'login.html'
-      end
-    end
-    
-    def check_if_admin(username ='', password = '')
-      session[:admin] ||= true if (username == 'admin' && Digest::SHA1.hexdigest(password) == '75dce6d956d253730fe01071d9104da3f378a0e8')
-    end
-
-    def check_if_judge(username, assistant, ip_address)
-      judge = Judge.all(name: username)
-
-      if judge.length == 1
-        judge[0].update(ip_address: ip_address, 
-          assistant: assistant, is_connected: true)
-        session[:user_id] = Judge.all(name: username)[0].id
-      else
-        redirect '/'
-      end 
-    end
-
-  end
-
+ 
   ##Sinatra REST Routes
 
   before  do
@@ -74,7 +27,6 @@ class Pageantus < Sinatra::Base
   # Routes for views: homepage, if logged in then go to admin or client. 
 
   get '/' do
-    #    content_for :title, "Title for specific page"
     haml :login
     #    check_permissions
   end
@@ -82,12 +34,6 @@ class Pageantus < Sinatra::Base
   get '/test' do
     content_type 'json'
     Pageant.first.long_name
-  end
-  
-  get '/public/css/:name.scss' do |name|
-    require './views/scss/bourbon/lib/bourbon.rb'
-    content_type :css
-    scss name.to_sym, :layout => false
   end
 
   #  get '/backup' do

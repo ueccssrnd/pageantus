@@ -1,9 +1,7 @@
 - content_for :title do
   Login to Pageantus
 %h1 Pageantus
-%form{:id => "login", :method => "post", :action => "login"}
-  %input{:id => "username", :type => "text", :name => "username"}
+%form#login{:method => "post", :action => "login"}
+  %input#username{:type => "text", :name => "username"}
   %input{:type => "text", :name => "assistant"}
   %input{:type => "submit", :value => "Log In"}
-
-    
