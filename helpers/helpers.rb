@@ -17,8 +17,14 @@ module ApplicationHelper
   end
     
   def render_page(view)
-    content 'html'
+    if File.exist? ROOT_DIR + "/views/#{view}.haml" then
+      content_type 'html'
+      haml view.to_sym     
+    else
+      status 404
+    end
   end
+
 
   def check_permissions
     content_type 'html'
@@ -38,8 +44,8 @@ module ApplicationHelper
   end
 
   def check_if_judge(username, assistant, ip_address)
-    judge = Judge.all(name: username)
 
+    judge = Judge.all(name: username)
     if judge.length == 1
       judge[0].update(ip_address: ip_address, 
         assistant: assistant, is_connected: true)
@@ -48,5 +54,4 @@ module ApplicationHelper
       redirect '/'
     end 
   end
-
 end
