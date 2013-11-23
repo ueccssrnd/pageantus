@@ -5,28 +5,23 @@ require File.join(File.dirname(__FILE__), 'environment')
 class Pageantus < Sinatra::Base
   helpers ApplicationHelper
   
-
+  set :root, File.dirname(__FILE__)
+  set :public_folder,  Proc.new {File.join(root, "public")}
+  
   enable :sessions
   set :session_secret, 'super sectero'
-  
-  set :root, File.dirname(__FILE__)
-  set :public_folder, File.dirname(__FILE__) +  '/public'
   
   register Sinatra::AssetPack
   
   assets do
     serve '/css', :from => 'public/stylesheets'
-    css :pageantusa, ['/css/*.css']
+    css :global_javascript, ['/css/*.css']
     css_compression :simple
 
     serve '/js', :from => 'public/javascripts'
-    js :pageantus, ['/js/lib/*.js', '/js/*.js']
-    js_compression :jsmin
+    js :global_javascripts, ['/js/vendor/*.js']
+    js_compression :uglify
   end
-  
-  DataMapper.finalize
-  DataMapper.auto_upgrade!
-
  
   ##Sinatra REST Routes
 
@@ -38,19 +33,8 @@ class Pageantus < Sinatra::Base
   # Routes for views: homepage, if logged in then go to admin or client. 
 
   get '/' do
-    if session[:user_id]
-      puts session[:user_id]
-      render_page 'judge'
-    else
-      render_page 'login'  
-    end
+    check_permissions
   end
-  
-  get '/test' do
-    content_type 'json'
-    Pageant.first.long_name
-  end
-
   
   post '/login' do
     check_if_admin(params[:username], params[:assistant])
@@ -65,29 +49,26 @@ class Pageantus < Sinatra::Base
   
   #  get '/backup' do
   #    Pageant.active.backup
-  #    'yey'.to_json
   #  end
   #
   
-#  not_found do
-#    #      check if request is json or not
-#    json_status 404, 'Battlecruiser not in transit'
-#  end
-  
-  #
-  #  get '/old' do
-  #    content_type 'html'
-  #    erb :'adminold.html'
+  #  not_found do
+  #    #      check if request is json or not
+  #    json_status 404, 'Battlecruiser not in transit'
   #  end
+  
+  get '/test' do
+    content_type 'json'
+    Pageant.first.long_name
+  end
+  
   #
   #  get '/projector' do
-  #    content_type 'html'
-  #    erb :'projector.html'
+  #  render_page 'projector'
   #  end
   #
   #  get '/top5' do
-  #    content_type 'html'
-  #    erb :'top5.html'
+  #  render_page 'top5'
   #  end
   #
   #

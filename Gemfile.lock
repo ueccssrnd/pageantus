@@ -146,7 +146,6 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     uuidtools (2.1.4)
-    yui-compressor (0.12.0)
 
 PLATFORMS
   ruby
@@ -169,4 +168,3 @@ DEPENDENCIES
   sinatra-assetpack
   sinatra-contrib (~> 1.4.1)
   uglifier
-  yui-compressor

@@ -6,7 +6,10 @@
     %link{:rel => "shortcut icon", :href => "images/rnd.ico"}
     %link{:href => "/image/favicon.png", :rel => "apple-touch-icon", :type => "image/png"}
     %link{:rel => "stylesheet", :href => "fonts/font.css" }
-    = css :pageantusa, :media => 'screen'
+    = css :global_javascript, :media => 'screen'
   %body
     = yield
-    = js :pageantus
+    = js :global_javascripts
+    %script{ :type => "text/javascript", :src =>"#{settings.public_folder}/javascripts/#{@page_javascript}.js"}
+    
+    

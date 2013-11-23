@@ -19,6 +19,7 @@ module ApplicationHelper
   def render_page(view)
     if File.exist? ROOT_DIR + "/views/#{view}.haml" then
       content_type 'html'
+      @page_javascript = view
       haml view.to_sym     
     else
       status 404
@@ -27,15 +28,14 @@ module ApplicationHelper
 
 
   def check_permissions
-    content_type 'html'
     if session[:admin]
       Pageant.active.update(server_address: request.env['REMOTE_ADDR'])
       @pageant = Pageant.active[0]
-      erb :'admin.html'
+      render_page 'admin'
     elsif session[:user_id]
-      erb :'judge.html'
+      render_page 'judge'
     else
-      erb :'login.html'
+      render_page 'login'
     end
   end
     
@@ -44,7 +44,6 @@ module ApplicationHelper
   end
 
   def check_if_judge(username, assistant, ip_address)
-
     judge = Judge.all(name: username)
     if judge.length == 1
       judge[0].update(ip_address: ip_address, 

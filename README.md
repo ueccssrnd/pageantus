@@ -9,19 +9,13 @@ Ruby Iteration Used: Mr. and Ms. UE 2013
 
 #### Usage
 
+    $ git clone --depth 1 https://github.com/ueccssrnd/pageantus.git mypageant
+    $ bundle install
+    $ rake db:reseed
+    $ rackup
+    $ shotgun config.ru for live reload when testing.
 
-`git clone https://github.com/ueccssrnd/pageantus.git`
-
-`cd` into the directory
-
-`rackup` launches at port 9292
-
-Shotgun: `shotgun config.ru` for live reload.
-
-
-CCSS Testing: IP Address must be 172.16.2.101, Subnet Mask = 255.255.255.254, Router = 172.16.2.1
-
-#### Toolzorz
+#### Stack
 
 Back-end: Sinatra + DataMapper + PostgreSQL + Heroku
 
@@ -31,10 +25,10 @@ Front-end: Sinatra Asset Pack + CoffeeScript + Bourbon + Neat + Haml
 
 @todo
 * http://martinfowler.com/articles/rake.html
-* pry
+* haml load each own stylesheet based on name
+* remove all js in javascripts folder, just coffee
 * Pageant setup tab
 * background for login
-* sprocket asset pipeline
 * logo fix
 * reports fixing and customization
 * add testing
@@ -46,4 +40,7 @@ Front-end: Sinatra Asset Pack + CoffeeScript + Bourbon + Neat + Haml
 * test_app.rb
 * reports: Categories, Pageant Information, Memorandum of Agreement, Candidates, Rounds
 * Scores
-* connect to fb:?
+
+Workaround
+
+* sinatra-assetpack + bourbon not playing nice with fonts. I separated the font file first.
