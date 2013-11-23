@@ -1,15 +1,15 @@
 !!!
-%html
+%html{"ng-app" => "myApp"}
   %head
     = haml :"partials/_meta"
     %title= content(:title).nil? ? Pageantus : content(:title)
     %link{:rel => "shortcut icon", :href => "images/rnd.ico"}
-    / %link{:href => "/image/favicon.png", :rel => "apple-touch-icon", :type => "image/png"}
+    -# Font Separated because Bourbon doesn't play well with asset-pack
     %link{:rel => "stylesheet", :href => "fonts/font.css" }
     = css :global_stylesheets, :media => 'screen'
     %link{:rel => "stylesheet", :href => "css/#{@view}.css" }
-    / %css{ :type => "text/javascript", :src =>"#{settings.public_folder}/javascripts/#{@view}.js"}
   %body{:class => "#{@view}"}
     = yield
     = js :global_javascripts
     %script{ :type => "text/javascript", :src =>"js/#{@view}.js"}
+    

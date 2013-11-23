@@ -58,9 +58,13 @@ class Pageantus < Sinatra::Base
   #    json_status 404, 'Battlecruiser not in transit'
   #  end
   
-  get '/test' do
+  get '/db' do
     content_type 'json'
     Pageant.first.long_name
+  end
+  
+  get '/test' do
+    render_page 'test'
   end
   
   #
@@ -244,18 +248,18 @@ class Pageantus < Sinatra::Base
   #  end
   #
   #
-  #  get '/:model/?' do
-  #    check_if_admin
-  #
-  #    if @models.include? params[:captures].first
-  #      model_class = Module.const_get(params[:captures].first.capitalize)
-  #
-  #      model_class.all(@to_pass).to_json
-  #
-  #    else
-  #      json_status 412, 'fail'
-  #    end
-  #  end
+    get '/:model/?' do
+      check_if_admin
+  
+      if @models.include? params[:captures].first
+        model_class = Module.const_get(params[:captures].first.capitalize)
+  
+        model_class.all(@to_pass).to_json
+  
+      else
+        json_status 412, 'fail'
+      end
+    end
   #
   #  post '/:model/?' do
   #
