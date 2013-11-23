@@ -1,7 +1,10 @@
+@import "vendor/normalize.css";
+@import "vendor/meyer-reset.css";
 @import "vendor/bourbon/bourbon";
 @import "vendor/neat/neat";
 
 @import "partials/header";
+@import "partials/dialogbox";
 
 body{
     background-color: #000;
