@@ -19,7 +19,7 @@ module ApplicationHelper
   def render_page(view)
     if File.exist? ROOT_DIR + "/views/#{view}.haml" then
       content_type 'html'
-      @page_javascript = view
+      @view = view
       haml view.to_sym     
     else
       status 404

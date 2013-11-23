@@ -1,15 +1,15 @@
 !!!
 %html
   %head
-    = haml :_meta
+    = haml :"partials/_meta"
     %title= content(:title).nil? ? Pageantus : content(:title)
     %link{:rel => "shortcut icon", :href => "images/rnd.ico"}
-    %link{:href => "/image/favicon.png", :rel => "apple-touch-icon", :type => "image/png"}
+    / %link{:href => "/image/favicon.png", :rel => "apple-touch-icon", :type => "image/png"}
     %link{:rel => "stylesheet", :href => "fonts/font.css" }
-    = css :global_javascript, :media => 'screen'
-  %body
+    = css :global_stylesheets, :media => 'screen'
+    %link{:rel => "stylesheet", :href => "css/#{@view}.css" }
+    / %css{ :type => "text/javascript", :src =>"#{settings.public_folder}/javascripts/#{@view}.js"}
+  %body{:class => "#{@view}"}
     = yield
     = js :global_javascripts
-    %script{ :type => "text/javascript", :src =>"#{settings.public_folder}/javascripts/#{@page_javascript}.js"}
-    
-    
+    %script{ :type => "text/javascript", :src =>"js/#{@view}.js"}

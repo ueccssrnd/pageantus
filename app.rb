@@ -15,15 +15,16 @@ class Pageantus < Sinatra::Base
   
   assets do
     serve '/css', :from => 'public/stylesheets'
-    css :global_javascript, ['/css/*.css']
+    css :global_stylesheets, ["/css/application.css"]
     css_compression :simple
 
     serve '/js', :from => 'public/javascripts'
     js :global_javascripts, ['/js/vendor/*.js']
     js_compression :uglify
   end
+  
+  DataMapper.auto_upgrade!
  
-  ##Sinatra REST Routes
 
   before  do
     @models = %w{pageant round category candidate judge score setting}

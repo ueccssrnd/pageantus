@@ -1,0 +1,5 @@
+@import "application";
+
+body.admin{
+    @include background(url('../images/black.jpg') no-repeat);
+}

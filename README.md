@@ -27,6 +27,8 @@ Front-end: Sinatra Asset Pack + CoffeeScript + Bourbon + Neat + Haml
 * http://martinfowler.com/articles/rake.html
 * haml load each own stylesheet based on name
 * remove all js in javascripts folder, just coffee
+* minify indiv cs/js
+* partials in haml
 * Pageant setup tab
 * background for login
 * logo fix

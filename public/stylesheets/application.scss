@@ -1,0 +1,13 @@
+@import "vendor/bourbon/bourbon";
+@import "vendor/neat/neat";
+
+@import "partials/header";
+
+body{
+    background-color: #000;
+    background-size: cover;
+    color: #FFF;
+    cursor: default;
+    margin:0;
+    font-family: $helvetica;
+}
