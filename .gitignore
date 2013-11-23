@@ -8,3 +8,5 @@ test.rb
 .sass-cache/
 .bundle/
 public/stylesheets/*.css
+/public/stylesheets/vendor/*.css
+todo

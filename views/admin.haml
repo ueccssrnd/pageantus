@@ -2,38 +2,15 @@
   Admin Module
 %header
   %span#header-left 
-    Admin Module
-    %em YOLO
-    Modul
+    = Pageant.starting? ? "Pageantus - #{@pageant.long_name}" : "Pageantus - No Pageant Active"
   %span#header-right
     .tray-icon#connectivity
     .tray-icon#lock
     .tray-icon#settings
 .container
   .candidates-columns
-    %input{:type => "text", "ng-model" => "yourName"}
-    %p{:class => "thingie {{yourName}}"} hello {{yourName}}
-    %p hello {{yourName}}
-  .candidates-columns{"ng-controller" => "FirstCtrl"}
-    %p{:class => "thingie {{data.message}}"} hello {{data.message}}
-    %p hello {{data.message}}
-    %p scope is not hte model it's just a thing that you assign modesl to.
-  .candidates-columns{"ng-controller" => "SecondCtrl"}
-    %p{:class => "thingie {{data.message}}"} hello {{data.message}}
-    %p hello {{data.message}}
-    %p hello {{reversedMessage(data.message)}}
-  .candidates-columns{"ng-controller" => "SecondCtrl"}
-    %p{:class => "thingie {{data.message}}"} Filter {{data.message|reverse}}
-
-  .candidates-columns{"ng-controller" => "AvengersCtrl"}
-    %input{:type => "text", "ng-model" => "searchText.$"}
-    %table
-      %tr{"ng-repeat" => "actor in avengers.cast | filter: searchText"}
-        %td {{actor.name}}
-        %td {{actor.character}}
-    
-    
-
-
-    /%a.navigation-icon.icon-gears.icon-2x.rotate{:href => "#"} Hello
+  - Candidate.all.each do |c|
+    .hello
+      %h2= c.first_name
+  -# %a.navigation-icon.icon-gears.icon-2x.rotate{:href => "#"} Hello
     

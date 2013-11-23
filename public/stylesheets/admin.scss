@@ -12,3 +12,8 @@ body.admin{
     @include span-columns(6);
     background-color: red;
 }
+
+h2{
+    font-size: 40 !important;
+    font-famiy: $verdana;
+}

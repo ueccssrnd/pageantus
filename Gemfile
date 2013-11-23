@@ -12,6 +12,7 @@ gem 'sinatra', '~> 1.4.4'
 gem 'sinatra-assetpack'
 gem 'sinatra-contrib', '~> 1.4.1'
 gem 'uglifier'
+gem 'yui-compressor', :require => 'yui/compressor'
 
 #gem 'compass'
 #gem 'bootstrap-sass'
@@ -26,9 +27,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'awesome_print'
   gem 'pry'
-  gem 'shotgun'
 end
 
 group :test do

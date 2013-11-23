@@ -29,8 +29,10 @@ module ApplicationHelper
 
   def check_permissions
     if session[:admin]
-      Pageant.active.update(server_address: request.env['REMOTE_ADDR'])
-      @pageant = Pageant.active[0]
+      if Pageant.starting?
+        Pageant.active.update(server_address: request.env['REMOTE_ADDR'])
+        @pageant = Pageant.active
+      end
       render_page 'admin'
     elsif session[:user_id]
       render_page 'judge'

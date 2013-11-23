@@ -9,22 +9,23 @@ class Pageantus < Sinatra::Base
   set :public_folder,  Proc.new {File.join(root, "public")}
   
   enable :sessions
-  set :session_secret, 'super sectero'
+  set :session_secret, 'super sescteros'
   
   register Sinatra::AssetPack
   
   assets do
     serve '/css', :from => 'public/stylesheets'
     css :global_stylesheets, ["/css/application.css"]
-    css_compression :simple
+    css_compression :yui
 
     serve '/js', :from => 'public/javascripts'
     js :global_javascripts, ['/js/vendor/*.js']
     js_compression :uglify
+    
+    prebuild true
   end
   
   DataMapper.auto_upgrade!
- 
 
   before  do
     @models = %w{pageant round category candidate judge score setting}
@@ -61,6 +62,7 @@ class Pageantus < Sinatra::Base
   get '/db' do
     content_type 'json'
     Pageant.first.long_name
+    'hellasdqdqdqwaso'
   end
   
   get '/test' do

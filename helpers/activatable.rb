@@ -1,10 +1,9 @@
 module Activatable
   def active
-    # Make this allow for multiple
     context = Module.const_get(name).all(is_active: true)
   end
 
-  def is_starting?
+  def starting?
     !active.nil?
   end
 

@@ -19,11 +19,13 @@ class Pageant
   property :pageant_location, String
   property :pageant_date, DateTime
   [:rounds, :candidates, :categories, :judges, :scores].each {|i|  has n, i}
+  
+  def self.active
+    self.first(is_active:true)
+  end
 
   def backup
-
     file = File.new('data/scores-' + DateTime.now.strftime('backup-%Y-%m-%d-%H-%M-%S.txt'), 'w')
-
     Score.all.each do |score|
       file.write(score.to_json + "\n")
     end
@@ -51,8 +53,6 @@ class Pageant
       score[:score] = (score[:average] * 0.2 + 0.8 * score[:final]).round(4)
       count = count + 1
     end
-
-    
     scores1 = scores1.sort_by {|h| -h[:score]}
 
   end
