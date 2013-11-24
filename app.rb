@@ -3,9 +3,10 @@ require File.join(File.dirname(__FILE__), 'environment')
 #configure production statis cture cache enabled true
 
 class Pageantus < Sinatra::Base
-  helpers ApplicationHelper
+  helpers ApplicationHelper, AuthenticationHelper
   
   set :root, File.dirname(__FILE__)
+  set :data_folder, Proc.new {File.join(root, "data")}
   set :public_folder,  Proc.new {File.join(root, "public")}
   
   enable :sessions
@@ -31,8 +32,6 @@ class Pageantus < Sinatra::Base
     @models = %w{pageant round category candidate judge score setting}
     @to_pass = params[:data] || params
   end
-
-  # Routes for views: homepage, if logged in then go to admin or client. 
 
   get '/' do
     check_permissions
@@ -304,6 +303,7 @@ class Pageantus < Sinatra::Base
   #    end
   #  end
   #
+  # halt 401 unless admin!
   #
   #  delete '/:model/?' do
   #

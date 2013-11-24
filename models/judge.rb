@@ -11,4 +11,12 @@ class Judge
 
   belongs_to :pageant
   has n, :scores
+  
+  def connect(assistant, ip_address)
+    self.update(ip_address: ip_address, assistant: assistant, is_connected: true)
+  end
+  
+  def disconnect
+    self.update(is_connected: false)
+  end
 end

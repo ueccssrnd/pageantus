@@ -1,6 +1,6 @@
 module Activatable
   def active
-    context = Module.const_get(name).all(is_active: true)
+    Module.const_get(name).all(is_active: true)
   end
 
   def starting?

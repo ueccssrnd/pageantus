@@ -1,5 +1,3 @@
-
-
 class Pageant
   include DataMapper::Resource
   extend Activatable
@@ -23,13 +21,24 @@ class Pageant
   def self.active
     self.first(is_active:true)
   end
+  
+  def start (server_address)
+    if Pageant.starting?
+      "#{Pageant.active.short_namename} with ID #{Pageant.active.id} is starting"
+    else
+      self.update(server_address: server_address, is_active: true)
+    end
+  end
+  
+  def self.stop
+    self.first.update(is_active: false)
+  end
 
-  def backup
-    file = File.new('data/scores-' + DateTime.now.strftime('backup-%Y-%m-%d-%H-%M-%S.txt'), 'w')
+  def backup (directory = '')
+    file = File.new("#{directory}/scores-#{DateTime.now.strftime('backup-%Y-%m-%d-%H-%M-%S.txt')}", 'w')
     Score.all.each do |score|
       file.write(score.to_json + "\n")
     end
-
   end
 
   def generate_top_5(gender='F')
