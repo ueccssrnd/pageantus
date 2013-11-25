@@ -1,0 +1,86 @@
+:pageant_id: 1
+:category:
+  - 
+    :round_id: 1
+    :number: 1
+    :long_name: Originality
+    :short_name: Orig
+    :weight: 30
+  - 
+    :round_id: 1
+    :number: 2
+    :long_name: Execution
+    :short_name: Exec
+    :weight: 35
+  - 
+    :round_id: 1
+    :number: 3
+    :long_name: Appeal and Poise (Talent)
+    :short_name: AP(T)
+    :weight: 20
+  - 
+    :round_id: 1
+    :number: 4
+    :long_name: Audience Impact (Talent)
+    :short_name: AI(T)
+    :weight: 15
+  - 
+    :round_id: 2
+    :number: 5
+    :long_name: Votes
+    :short_name: Votes
+    :weight: 12.5
+  - 
+    :round_id: 2
+    :number: 5
+    :long_name: Votes
+    :short_name: Votes
+    :weight: 12.5
+  - 
+    :round_id: 2
+    :number: 6
+    :long_name: Punctuality
+    :short_name: Punc
+    :weight: 12.5
+  - 
+    :round_id: 2
+    :number: 7
+    :long_name: Theme Wear
+    :short_name: ThW
+    :weight: 12.5
+  - 
+    :round_id: 2
+    :number: 8
+    :long_name: Summer Wear
+    :short_name: SuW
+    :weight: 12.5
+  - 
+    :round_id: 2
+    :number: 9
+    :long_name: Casual Wear
+    :short_name: SuW
+    :weight: 12.5
+  - 
+    :round_id: 2
+    :number: 10
+    :long_name: Formal Wear
+    :short_name: SuW
+    :weight: 12.5
+  - 
+    :round_id: 2
+    :number: 11
+    :long_name: Appeal and Poise (Coronation)
+    :short_name: AP(C)
+    :weight: 12.5
+  - 
+    :round_id: 2
+    :number: 12
+    :long_name: Audience Impact (Coronation)
+    :short_name: AI(C)
+    :weight: 12.5
+  - 
+    :round_id: 3
+    :number: 13
+    :long_name: Top 5
+    :short_name: TOP5
+    :weight: 100

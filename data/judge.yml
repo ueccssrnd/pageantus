@@ -1,0 +1,30 @@
+:pageant_id: 1
+:judge:
+  - 
+    :number: 1
+    :name: UESC
+    :assistant: Daryll
+  - 
+    :number: 2
+    :name: Pre1
+    :assistant: Neil
+  - 
+    :number: 3
+    :name: Pre2
+    :assistant: Chi
+  - 
+    :number: 4
+    :name: Pre3
+    :assistant: Reymark
+  - 
+    :number: 5
+    :name: Cor1
+    :assistant: Saldi
+  - 
+    :number: 6
+    :name: Cor2
+    :assistant: KarlM
+  - 
+    :number: 7
+    :name: Cor3
+    :assistant: Alyssa

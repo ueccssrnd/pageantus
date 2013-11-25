@@ -10,8 +10,8 @@ class Candidate
   property :gender, String
   property :short_description, String, length: 3..8
   property :long_description, String, length: 16..255
-  property :facial_photo_location, String, :default => 'rnd_face.jpg'
-  property :body_photo_location, String, :default => 'rnd_body.jpg'
+  property :facial_photo_location, String, :default => lambda {|r, p| "#{r.candidate_number.to_s + r.gender.downcase}-face.jpg" }
+  property :body_photo_location, String, :default => lambda {|r, p| "#{r.candidate_number.to_s + r.gender.downcase}-body.jpg" }
 
   belongs_to :pageant
   has n, :scores

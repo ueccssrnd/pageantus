@@ -1,0 +1,114 @@
+:pageant_id: 1
+:candidate:
+  - 
+    :candidate_number: 1
+    :first_name: Carnae Patrice
+    :last_name: Flamiano
+    :gender: F
+    :short_description: MNL-CAS
+    :long_description: UE Manila College of Arts and Sciences
+  -
+    :candidate_number: 2
+    :first_name: Ma. Samantha Denise
+    :last_name: Villanueva
+    :gender: F
+    :short_description: MNL-Educ
+    :long_description: UE Manila College of Eduction
+  -
+    :candidate_number: 3
+    :first_name: Raena Niña
+    :last_name: Panganiban
+    :gender: F
+    :short_description: MNL-CCSS
+    :long_description: UE Manila College of Computer Studies and Systems
+  -
+    :candidate_number: 4
+    :first_name: Rhoan
+    :last_name: Aguilar
+    :gender: F
+    :short_description: CAL-CBA
+    :long_description: UE Caloocan College of Business Administration
+  -
+    :candidate_number: 5
+    :first_name: Shyrla
+    :last_name: Nuñez
+    :gender: F
+    :short_description: MNL-Dent
+    :long_description: College of Dentistry
+  -
+    :candidate_number: 6
+    :first_name: Tricia
+    :last_name: Barizo
+    :gender: F
+    :short_description: MNL-CBA
+    :long_description: UE Manila College of Business Administration
+  -
+    :candidate_number: 7
+    :first_name: Jeazzile Glezee
+    :last_name: Macutay
+    :gender: F
+    :short_description: MNL-Engg
+    :long_description: UE Manila College of Engineering
+  -
+    :candidate_number: 8
+    :first_name: Mitzi
+    :last_name: Tan
+    :gender: F
+    :short_description: CAL-CAS
+    :long_description: UE Caloocan College of Arts and Sciences
+  -
+    :candidate_number: 1
+    :first_name: Carlson Jude
+    :last_name: Carter
+    :gender: M
+    :short_description: MNL-CAS
+    :long_description: UE Manila College of Arts and Sciences
+  -
+    :candidate_number: 2
+    :first_name: Rodeo Mark
+    :last_name: Guzman
+    :gender: M
+    :short_description: MNL-Educ
+    :long_description: UE Manila College of Education
+  -
+    :candidate_number: 3
+    :first_name: Matthew
+    :last_name: Purugganan
+    :gender: M
+    :short_description: MNL-CCSS
+    :long_description: UE Manila College of Computer Studies and Systems
+  -
+    :candidate_number: 4
+    :first_name: John Paul
+    :last_name: Marcelino
+    :gender: M
+    :short_description: CAL-CAS
+    :long_description: UE Caloocan College of Arts and Sciences
+  -
+    :candidate_number: 5
+    :first_name: Ezekiel
+    :last_name: Algabre
+    :gender: M
+    :short_description: MNL-Dent
+    :long_description: UE Manila College of Dentistry
+  -
+    :candidate_number: 6
+    :first_name: Mark David
+    :last_name: Gwan
+    :gender: M
+    :short_description: MNL-CBA
+    :long_description: UE Manila College of Business Administration
+  -
+    :candidate_number: 7
+    :first_name: Mark Adrian
+    :last_name: Crystal
+    :gender: M
+    :short_description: MNL-Engg
+    :long_description: UE Manila College of Engineering
+  -
+    :candidate_number: 8
+    :first_name: Jhoevy
+    :last_name: Tuazon
+    :gender: M
+    :short_description: CAL-CAS
+    :long_description: UE Caloocan College of Arts and Sciences

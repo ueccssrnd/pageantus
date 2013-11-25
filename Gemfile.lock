@@ -11,7 +11,6 @@ GEM
     addressable (2.3.5)
     afm (0.2.0)
     atomic (1.1.14)
-    awesome_print (1.1.0)
     backports (3.3.5)
     bcrypt-ruby (3.1.2)
     bourbon (3.1.8)
@@ -116,8 +115,6 @@ GEM
     rspec-mocks (2.14.4)
     ruby-rc4 (0.1.5)
     sass (3.2.12)
-    shotgun (0.9)
-      rack (>= 1.0)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -146,13 +143,13 @@ GEM
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     uuidtools (2.1.4)
+    yui-compressor (0.12.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   activesupport (~> 4.0.1)
-  awesome_print
   bourbon (~> 3.1.8)
   coffee-script
   data_mapper (~> 1.2.0)
@@ -163,8 +160,8 @@ DEPENDENCIES
   prawn (~> 0.12.0)
   pry
   rspec
-  shotgun
   sinatra (~> 1.4.4)
   sinatra-assetpack
   sinatra-contrib (~> 1.4.1)
   uglifier
+  yui-compressor
