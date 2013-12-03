@@ -12,8 +12,8 @@ Ruby Iteration Used: Mr. and Ms. UE 2013
     $ git clone --depth 1 https://github.com/ueccssrnd/pageantus.git mypageant
     $ bundle install
     $ rake db:reseed
-    $ rackup
-    $ rerun 'rackup' for live reload
+    $ rackup -p [PORT_NUMBER] -E production
+    $ 
 
 #### Stack
 

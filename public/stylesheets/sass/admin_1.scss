@@ -1,0 +1,19 @@
+@import "application";
+
+body.admin{
+    @include background(url("../images/black.jpg") no-repeat);
+}
+
+.container{
+    @include outer-container;
+}
+
+.candidates-columns{
+    @include span-columns(6);
+    background-color: red;
+}
+
+h2{
+    font-size: 40 !important;
+    font-famiy: $verdana;
+}
