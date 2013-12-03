@@ -6,14 +6,37 @@ body.admin{
 
 .container{
     @include outer-container;
+    height: 100%;
+    margin-top: 2em;
+    
 }
 
-.candidates-columns{
-    @include span-columns(6);
+.icons-columns{
+    @extend .pageantus-chrome;
+    @include span-columns(2);
+    height: 100%;
+    text-align: center;
+    ul{
+        li{
+            margin: 2em;
+        }
+        
+    }
+    
+}
+
+.content-columns{
+    @extend .pageantus-chrome;
+    @include span-columns(10);
     background-color: red;
 }
 
 h2{
     font-size: 40 !important;
     font-famiy: $verdana;
+}
+
+.relative{
+    position:relative;
+    display: inline;
 }

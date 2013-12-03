@@ -1,10 +1,20 @@
+@import "vendor/reset-meyer";
 @import "vendor/normalize";
 @import "vendor/typeplate";
 @import "vendor/bourbon/bourbon";
 @import "vendor/neat/neat";
 
+@import "partials/colors";
 @import "partials/header";
 @import "partials/dialogbox";
+
+body, html{
+    height: 100%;
+}
+
+li{
+    list-style-type: none;
+}
 
 body{
     background-color: #000;

@@ -8,9 +8,14 @@
     .tray-icon#lock
     .tray-icon#settings
 .container
-  .candidates-columns
+  %nav.icons-columns
+    %ul
+      - %w{Pageant Setup Reports Logs Logout}.each do |tab|
+        %li
+          %a{:href => "##{tab}"}= tab
+  .content-columns
   - Candidate.all.each do |c|
     .hello
-      %h2= c.first_name
+      %h4= c.first_name
   -# %a.navigation-icon.icon-gears.icon-2x.rotate{:href => "#"} Hello
     
