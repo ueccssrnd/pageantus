@@ -15,12 +15,13 @@ body.admin{
     @extend .pageantus-chrome;
     @include span-columns(2);
     height: 100%;
-    text-align: center;
     ul{
         li{
-            margin: 2em;
+            border-bottom: 1px solid #666 ;
+            margin: 2em 0 ;
+            padding: 0 1em 0.5em;
+            text-align: center;
         }
-        
     }
     
 }

@@ -1,5 +1,6 @@
 - content_for :title do
   Admin Module
+- tabs = YAML.load_file "data/admin-tabs.yml"
 %header
   %span#header-left 
     = Pageant.starting? ? "Pageantus - #{@pageant.long_name}" : "Pageantus - No Pageant Active"
@@ -10,14 +11,14 @@
 .container
   %nav.icons-columns
     %ul
-      - %w{Pageant Setup Reports Logs Logout}.each do |tab|
+      - tabs.each do |tab|
         %li
-          %a{:href => "##{tab}"}
-            %i.fa.fa-camera-retro
-            = tab
+          %a{:href => "##{tab[:name]}"}
+            %i.fa.fa-3x.fa-fw.block{:class => "#{tab[:icon]}"}
+            = tab[:name]
   .content-columns
   - Candidate.all.each do |c|
     .hello
-      %h4= c.first_name
+      %p.small= c.first_name
   -# %a.navigation-icon.icon-gears.icon-2x.rotate{:href => "#"} Hello
     

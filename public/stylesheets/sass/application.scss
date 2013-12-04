@@ -3,8 +3,9 @@
 @import "vendor/typeplate";
 @import "vendor/bourbon/bourbon";
 @import "vendor/neat/neat";
-@import 'font-awesome';
+@import "vendor/font-awesome/font-awesome";
 
+@import "partials/display";
 @import "partials/colors";
 @import "partials/header";
 @import "partials/dialogbox";
@@ -24,4 +25,8 @@ body{
     cursor: default;
     margin:0;
     font-family: $helvetica;
+}
+
+a{
+    text-decoration: none;
 }
