@@ -12,7 +12,9 @@
     %ul
       - %w{Pageant Setup Reports Logs Logout}.each do |tab|
         %li
-          %a{:href => "##{tab}"}= tab
+          %a{:href => "##{tab}"}
+            %i.fa.fa-camera-retro
+            = tab
   .content-columns
   - Candidate.all.each do |c|
     .hello

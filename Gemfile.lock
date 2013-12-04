@@ -2,6 +2,12 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.0.2)
+    actionpack (4.0.1)
+      activesupport (= 4.0.1)
+      builder (~> 3.1.0)
+      erubis (~> 2.7.0)
+      rack (~> 1.5.2)
+      rack-test (~> 0.6.2)
     activesupport (4.0.1)
       i18n (~> 0.6, >= 0.6.4)
       minitest (~> 4.2)
@@ -16,6 +22,7 @@ GEM
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
+    builder (3.1.4)
     coderay (1.0.9)
     coffee-script (2.2.0)
       coffee-script-source
@@ -75,8 +82,11 @@ GEM
       data_objects (= 0.10.13)
     do_sqlite3 (0.10.13)
       data_objects (= 0.10.13)
+    erubis (2.7.0)
     execjs (2.0.2)
     fastercsv (1.5.5)
+    font-awesome-rails (4.0.3.0)
+      railties (>= 3.2, < 5.0)
     haml (4.0.4)
       tilt
     hashery (2.1.1)
@@ -105,6 +115,12 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    railties (4.0.1)
+      actionpack (= 4.0.1)
+      activesupport (= 4.0.1)
+      rake (>= 0.8.7)
+      thor (>= 0.18.1, < 2.0)
+    rake (10.1.0)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -155,11 +171,13 @@ DEPENDENCIES
   data_mapper (~> 1.2.0)
   dm-postgres-adapter
   dm-sqlite-adapter (~> 1.2.0)
+  font-awesome-rails (~> 4.0.3.0)
   haml (~> 4.0.4)
   json (~> 1.8.0)
   prawn (~> 0.12.0)
   pry
   rspec
+  sass (~> 3.2.12)
   sinatra (~> 1.4.4)
   sinatra-assetpack
   sinatra-contrib (~> 1.4.1)
