@@ -1,7 +1,6 @@
 @import "application";
 
 body.admin{
-    @include background(url("../images/black.jpg") no-repeat);
 }
 
 .container{
@@ -13,13 +12,13 @@ body.admin{
 
 .icons-columns{
     @extend .pageantus-chrome;
-    @include span-columns(2);
+    @include span-columns(1.5);
     height: 100%;
     ul{
         li{
             border-bottom: 1px solid #666 ;
             margin: 2em 0 ;
-            padding: 0 1em 0.5em;
+            padding: 0 0.5em 0.5em;
             text-align: center;
         }
     }
@@ -28,8 +27,9 @@ body.admin{
 
 .content-columns{
     @extend .pageantus-chrome;
-    @include span-columns(10);
+    @include span-columns(10.5);
     background-color: red;
+    padding: 1em;
 }
 
 h2{
