@@ -1,0 +1,1 @@
+Everything is in Sass. Waiting for font awesome gem for Sinatra.
